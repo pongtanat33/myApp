@@ -40,7 +40,7 @@ pipeline {
         }
         stage('Deploy to production server') {
             steps {
-                sshagent(['prod-credentials']) {
+                sshagent(['producton_credentials']) {
                     sh 'ssh -o StrictHostKeyChecking=no ${production_server_ip} docker compose -f /home/dong/todoapp/docker-compose.yml down'
                     sh 'ssh -o StrictHostKeyChecking=no ${production_server_ip} docker pull pongtanat/todoapp'
                     sh 'ssh -o StrictHostKeyChecking=no ${production_server_ip} docker compose -f \
