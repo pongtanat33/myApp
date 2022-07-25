@@ -18,7 +18,6 @@ COPY agapp/package.json ./
 RUN npm install -g -f yarn && yarn install
 COPY agapp ./
 RUN yarn build
-
 # 2) FINAL BUILD
 # FROM alpine:latest
 # RUN apk update && apk add --no-cache supervisor nginx
