@@ -11,6 +11,7 @@ COPY goapi/users ./users
 COPY goapi/db ./db
 RUN go build -o /goapi
 
+
 #2) BUILD AG
 FROM node:16-alpine AS build-ag
 WORKDIR /usr/src/app
