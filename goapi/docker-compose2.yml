@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  go:
+    image: mygo:latest
+    ports:
+      - 1234:1234
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+    restart: always    
+  db:
+    container_name: mssqldb_dev
+    image: mcr.microsoft.com/mssql/server:2019-CU16-GDR1-ubuntu-20.04
+    volumes:
+      - DB_VOL:/var/opt/mssql
+    
+    environment:
+      - SA_PASSWORD=P@ssw0rd
+      - MSSQL_PID=Express
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+    networks:
+      - mynetwork   
+
+networks:
+  mynetwork:
+    driver: bridge
+
+volumes:
+  DB_VOL:
+    external: true

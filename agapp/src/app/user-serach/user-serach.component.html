@@ -1,0 +1,30 @@
+
+<app-alert *ngIf="message" [message]="message"></app-alert>
+<form *ngIf="!valid" [formGroup]="userFormGroup">
+  <!-- <div><h4 *ngIf="userFormGroup.get('name')?.value"> HELLO {{ userFormGroup.get('name')?.value | uppercase }} : {{ userFormGroup.get('email')?.value | uppercase }}</h4></div> -->
+  <label class="form-label" for="email">Please Enter Email to Login :</label>
+  <input class="form-control" type="email" id="email" formControlName="email" required>
+</form>
+
+
+<div *ngIf="!valid" class="mt-3 d-flex justify-content-around">
+  <button class="btn btn-primary" (click)="onLogin()">Login</button>
+  <!-- <button class="btn btn-primary" (click)="onSave()">Save</button> -->
+</div>
+<!-- <ng-template #loggedIn>
+  <div>
+    <app-todo-list [item]="email"></app-todo-list>
+  </div>
+</ng-template> -->
+<div *ngIf="valid && !found">
+  <form [formGroup]="userFormGroup">
+    <label class="form-label" for="name">Enter Name :</label>
+    <input  class="form-control" type="text" id="name" formControlName="name" >
+  </form>
+  <div class="mt-3 d-flex justify-content-around">
+    <button class="btn btn-secondary" (click)="onBack()">Back</button>
+    <button class="btn btn-primary" (click)="onAddUser()">Register</button>
+  </div>
+</div>
+
+<!-- {{ userFormGroup.value | json }} -->

@@ -1,0 +1,42 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/agapp/dist
+/agapp/tmp
+/agapp/out-tsc
+/agapp/bazel-out
+
+# Node
+/agapp/node_modules
+/agapp/npm-debug.log
+/agapp/yarn-error.log
+
+# IDEs and editors
+/agapp.idea/
+/agapp.project
+/agapp.classpath
+/agapp.c9/
+/agapp*.launch
+/agapp.settings/
+/agapp*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/agapp/.angular/cache
+/agapp.sass-cache/
+/agapp/connect.lock
+/agapp/coverage
+/agapp/libpeerconnection.log
+/agapptestem.log
+/agapp/typings
+
+# System files
+/agapp/.DS_Store
+/agapp/Thumbs.db

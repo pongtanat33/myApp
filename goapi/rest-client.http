@@ -1,0 +1,75 @@
+###
+http://localhost:1234/
+
+###
+http://localhost:1234/users
+
+###
+http://localhost:1234/users/foo@example.com
+
+###
+http://localhost:1234/todos/foo@example.com
+
+###
+POST http://localhost:1234/users
+Content-Type: application/json
+
+{
+    "Id": "1234",
+    "Name": "foor",
+    "Email": "foo@example.com"
+}
+
+###
+POST http://localhost:1234/users
+Content-Type: application/json
+
+{
+    "Name": "bar",
+    "Email": "foo@example.com"
+}
+
+###
+POST http://172.30.131.130:1234/users
+Content-Type: application/json
+
+{
+    "Id": "1235",
+    "Name": "foor",
+    "Email": "foo@example.com"
+}
+
+###
+POST http://localhost:1234/todos
+Content-Type: application/json
+
+{
+    "Description": "test do2",
+    "Complete" : false,
+    "UserEmail": "foo@example.com"
+}
+
+###
+http://localhost:1234/todos/foo@example.com
+
+###
+PUT http://localhost:1234/todos
+Content-Type: application/json
+
+{
+    "ID" : 1,
+    "Complete" : false
+}
+
+###
+DELETE  http://localhost:1234/todos
+Content-Type: application/json
+
+{
+    "ID" : 6
+}
+###
+DELETE  http://localhost:1234/todos/5555
+
+###
+DELETE  http://localhost:1234/users/10009555555555

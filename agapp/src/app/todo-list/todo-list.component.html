@@ -1,0 +1,30 @@
+
+<div class="d-flex justify-content-between my-2">
+    <h4>Todo list of {{item}}</h4>
+    <button class="btn btn-primary" routerLink="/todo-form/{{item}}">เพิ่ม</button>
+</div>
+  
+  
+  <app-alert *ngIf="message" [message]="message"></app-alert>
+  
+  <ul class="list-group">
+    <li
+      class="list-group-item list-group-item-action"
+      *ngFor="let todo of todos">
+      <div class="d-flex justify-content-between">
+        <input class="form-check-input" type="checkbox" [(ngModel)]="todo.complete" (click)="onSetComplete(todo.ID,todo.complete)" >
+        <a *ngIf="todo.complete" class="text-decoration-none" (click)="onSetComplete(todo.ID,todo.complete);todo.complete=!todo.complete">
+           <s>{{ todo.description }}</s>
+        </a>
+        <a *ngIf="!todo.complete" class="text-decoration-none" (click)="onSetComplete(todo.ID,todo.complete);todo.complete=!todo.complete">
+            {{ todo.description }}
+        </a>
+        <a class="btn btn-danger" (click)="onDelete(todo.ID,todo.complete)"><i class="bi bi-trash"></i></a>
+      </div>
+    </li>
+  </ul>
+  
+  <!-- {{ heroFormGroup.value | json }} -->
+  
+  <hr>
+  
