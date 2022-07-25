@@ -28,7 +28,6 @@ RUN yarn build
 # COPY --from=build-go /goapi /app/
 # EXPOSE 80
 # EXPOSE 1234
-
 # CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
 
 FROM nginx:alpine
