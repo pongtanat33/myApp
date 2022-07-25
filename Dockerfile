@@ -11,7 +11,6 @@ COPY goapi/users ./users
 COPY goapi/db ./db
 RUN go build -o /goapi
 
-
 #2) BUILD AG
 FROM node:16-alpine AS build-ag
 WORKDIR /usr/src/app
@@ -30,6 +29,7 @@ RUN yarn build
 # EXPOSE 80
 # EXPOSE 1234
 # CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+
 
 FROM nginx:alpine
 RUN apk update
