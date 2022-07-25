@@ -20,15 +20,15 @@ COPY agapp ./
 RUN yarn build
 
 # 2) FINAL BUILD
-# FROM alpine:latest
-# RUN apk update && apk add --no-cache supervisor nginx
-# COPY supervisord.conf /etc/supervisord.conf
-# COPY nginx.conf /etc/nginx/nginx.conf
-# COPY --from=build-ag /usr/src/app/dist/mytodo /usr/share/nginx/html
-# COPY --from=build-go /goapi /app/
-# EXPOSE 80
-# EXPOSE 1234
-# CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+FROM alpine:latest
+RUN apk update && apk add --no-cache supervisor nginx
+COPY supervisord.conf /etc/supervisord.conf
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build-ag /usr/src/app/dist/mytodo /usr/share/nginx/html
+COPY --from=build-go /goapi /app/
+EXPOSE 80
+EXPOSE 1234
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
 
 
 FROM nginx:alpine
