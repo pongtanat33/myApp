@@ -10,8 +10,8 @@ COPY *.go ./
 COPY users ./users
 COPY db ./db
 
-RUN go build -o /goapi
+RUN go build -o /backend
 
 EXPOSE 1234
 
-CMD [ "/goapi" ]
+CMD [ "/backend" ]
