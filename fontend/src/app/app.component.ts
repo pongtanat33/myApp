@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 
 export class AppComponent {
-  title = 'MY TODO';
+  title = 'MyApp';
   constructor(public router: Router) { }
   
   ngOnInit(): void {

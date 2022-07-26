@@ -12,44 +12,14 @@ import (
 
 // "users
 func GetAllUsers(c echo.Context) error {	
-	// id := c.Param("id")
-	// db.ReadAll()
 	usersDB,err := db.ReadAll()
 	if err != nil {
 		return c.String(http.StatusNotFound ,"Nouser found")
 	}
 	fmt.Print(usersDB)
-	// myuser := *usersDB
-	// var interfaceSlice []interface{} = make([]interface{}, len(usersDB))
-	// for i, d := range usersDB{
-	// 	interfaceSlice[i] = d
-	// }
-
 	var userlist []User
-	// userlist2 := User(usersDB)
-	 
-	// for _, a := range *usersDB {
-	// 	// fmt.Printf("Type: %T Value: %v\n", a, a.Email)
-	// 	userlist = append(userlist, User{
-	// 		Email:    a.Email,
-	// 		Name:     a.Name,
-	// 	})
-    // }
-
 	fmt.Println(userlist)
-	// result, _ := json.Marshal(usersDB)
-	// fmt.Println(string(result))
-	// myuser := []User{}
-	// myuser = make(usersDB)
-	
-	// myuser := []User{
-	// 	Name : usersDB.Name,
-	// 	Email : usersDB.Email,
-	// }
-	// return  c.JSON(http.StatusOK, )
-	// return c.JSON(http.StatusOK ,userlist)
 	return c.JSON(http.StatusOK ,usersDB)
-	// return c.String(http.StatusOK,"readall")	
 }
 
 // "user/:id"
@@ -61,7 +31,6 @@ func GetUser(c echo.Context) error {
 		return c.String(http.StatusNotFound ,"not found")
 	}
 	user := User{
-		// Id : userDB.Code,
 	    Name : userDB.Name,
 		Email : userDB.Email,
 	}
@@ -74,7 +43,6 @@ func Save(c echo.Context) error {
 		return err
 	}
 	userDB := db.UserDB{
-		// Code : user.Id,
 		Name : user.Name,
 		Email : user.Email,
 	}

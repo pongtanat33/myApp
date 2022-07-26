@@ -33,13 +33,7 @@ func main() {
 	e.POST("todos",t.Save)
 	e.PUT("todos",t.Update)
 	e.DELETE("todos/d/:id",t.Delete)
-
-
-
-
 	
-	// e.DELETE("todos/:id",t.Delete)
-
 	e.Logger.Fatal(e.Start(":1234"))
 }
 

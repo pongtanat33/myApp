@@ -27,20 +27,12 @@ type TodoDB struct {
 
 func ReadAll() (*[]UserDB, error){
 	db := DB()
-	// var userDB UserDB
-	// var usersDB UsersDB
 	users := []UserDB{}
 	db.Find(&users)
 	if err := db.Find(&users).Error; err != nil {
 		return nil, err
 	}
 	fmt.Print(&users)
-
-	// res2B, _ := json.Marshal(users)
-	// fmt.Println(string(res2B))
-	// usersDB = users
-	// // db.Find(&users)
-	// fmt.Print(&usersDB)
 	return &users,nil
 }
 
@@ -58,8 +50,6 @@ func Read(code string) (*UserDB, error) {
 func Create(user UserDB) error {
 	db := DB()
 	userData := UserDB{
-		// Code: user.Code,
-		// Name: user.Name,
 		Email: user.Email,
 	}
 	if err := db.Create(&userData).Error; err != nil {
@@ -72,9 +62,6 @@ func ReadTodo(userEmail string) (*[]TodoDB, error) {
 	db := DB()
 	
 	todoDB := []TodoDB{}
-	// if err := db.First(&todoDB,"user_email = ?",userEmail).Error; err != nil {
-	// 	return nil, err
-	// }
 	if err := db.Where("user_email = ?", userEmail).Find(&todoDB).Error; err != nil {
 		return nil, err
 	}

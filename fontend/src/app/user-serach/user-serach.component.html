@@ -2,7 +2,7 @@
 <app-alert *ngIf="message" [message]="message"></app-alert>
 <form *ngIf="!valid" [formGroup]="userFormGroup">
   <!-- <div><h4 *ngIf="userFormGroup.get('name')?.value"> HELLO {{ userFormGroup.get('name')?.value | uppercase }} : {{ userFormGroup.get('email')?.value | uppercase }}</h4></div> -->
-  <label class="form-label" for="email">Please Enter Email to Login :</label>
+  <label class="form-label" for="email">Please Enter Your Email:</label>
   <input class="form-control" type="email" id="email" formControlName="email" required>
 </form>
 

@@ -96,7 +96,6 @@ func Delete(c echo.Context) error {
     if err != nil {
         fmt.Println("err",err)
     }
-	// fmt.Println(id)
 	todoDB := db.TodoDB{
 		ID:uid,
 		Description : todo.Description,

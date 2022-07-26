@@ -12,12 +12,7 @@ import { environment as env }   from 'src/environments/environment';
 export class TodoService {
   baseUrl = ""
   constructor(private httpClient: HttpClient) { 
-    // if(devENV.production){
-    //   this.baseUrl = devENV.apiUrl_todo
-    // }else{
-    //   this.baseUrl = prodENV.apiUrl_todo
-    // }
-    // this.baseUrl = env.apiUrl_todo
+     //this.baseUrl = env.apiUrl_todo
     this.baseUrl = `http://${window.location.hostname}/api/todos`
   }
 
