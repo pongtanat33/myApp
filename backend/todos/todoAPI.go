@@ -1,7 +1,7 @@
 package todos
 
 import (
-	db "goapi/db"
+	db "backend/db"
 	"net/http"
 	"github.com/labstack/echo/v4"
 	// "encoding/json"

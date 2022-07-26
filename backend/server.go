@@ -5,11 +5,11 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	u "goapi/users"
+	u "backend/users"
 
-	t "goapi/todos"
+	t "backend/todos"
 
-	db "goapi/db"
+	db "backend/db"
 )
 
 func main() {
