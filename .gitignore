@@ -1,24 +1,24 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # Compiled output
-/agapp/dist
-/agapp/tmp
-/agapp/out-tsc
-/agapp/bazel-out
+/fontend/dist
+/fontend/tmp
+/fontend/out-tsc
+/fontend/bazel-out
 
 # Node
-/agapp/node_modules
-/agapp/npm-debug.log
-/agapp/yarn-error.log
+/fontend/node_modules
+/fontend/npm-debug.log
+/fontend/yarn-error.log
 
 # IDEs and editors
-/agapp.idea/
-/agapp.project
-/agapp.classpath
-/agapp.c9/
-/agapp*.launch
-/agapp.settings/
-/agapp*.sublime-workspace
+/fontend.idea/
+/fontend.project
+/fontend.classpath
+/fontend.c9/
+/fontend*.launch
+/fontend.settings/
+/fontend*.sublime-workspace
 
 # Visual Studio Code
 .vscode/*
@@ -29,14 +29,14 @@
 .history/*
 
 # Miscellaneous
-/agapp/.angular/cache
-/agapp.sass-cache/
-/agapp/connect.lock
-/agapp/coverage
-/agapp/libpeerconnection.log
+/fontend/.angular/cache
+/fontend.sass-cache/
+/fontend/connect.lock
+/fontend/coverage
+/fontend/libpeerconnection.log
 /agapptestem.log
-/agapp/typings
+/fontend/typings
 
 # System files
-/agapp/.DS_Store
-/agapp/Thumbs.db
+/fontend/.DS_Store
+/fontend/Thumbs.db
