@@ -16,11 +16,7 @@ func main() {
 	db.DB()
 	db.Migrate()
 	e := echo.New()
-    // e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-	// 	AllowOrigins: []string{"*"},
-	// 	AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
-	//   }))  
-	
+
 	e.Use(middleware.CORS())
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK,`{"response" : "success"}`)

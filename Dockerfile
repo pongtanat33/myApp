@@ -2,40 +2,29 @@
 # 1)BUILD API
 FROM golang:1.18-alpine AS build-go
 WORKDIR /app
-COPY goapi/go.mod ./
-COPY goapi/go.sum ./
+COPY backend/go.mod ./
+COPY backend/go.sum ./
 RUN go mod download && go mod verify
-COPY goapi/*.go ./
-COPY goapi/todos ./todos
-COPY goapi/users ./users
-COPY goapi/db ./db
-RUN go build -o /goapi
+COPY backend/*.go ./
+COPY backend/todos ./todos
+COPY backend/users ./users
+COPY backend/db ./db
+RUN go build -o /backend
 
 #2) BUILD AG
 FROM node:16-alpine AS build-ag
 WORKDIR /usr/src/app
-COPY agapp/package.json ./
+COPY fontend/package.json ./
 RUN npm install -g -f yarn && yarn install
-COPY agapp ./
+COPY fontend ./
 RUN yarn build
-
-# 2) FINAL BUILD
-# FROM alpine:latest
-# RUN apk update && apk add --no-cache supervisor nginx
-# COPY supervisord.conf /etc/supervisord.conf
-# COPY nginx.conf /etc/nginx/nginx.conf
-# COPY --from=build-ag /usr/src/app/dist/mytodo /usr/share/nginx/html
-# COPY --from=build-go /goapi /app/
-# EXPOSE 80
-# EXPOSE 1234
-# CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
 
 
 FROM nginx:alpine
 RUN apk update
 WORKDIR /usr/share/nginx/html
 COPY --from=build-ag /usr/src/app/dist/mytodo ./
-COPY --from=build-go /goapi /app/
+COPY --from=build-go /backend /app/
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY commands.sh ./
 ENTRYPOINT [ "/bin/sh", "./commands.sh" ]
