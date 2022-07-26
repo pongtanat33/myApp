@@ -19,8 +19,8 @@ export class UserService {
     //   this.baseUrl = prodENV.apiUrl
     // }
     console.log(env.production)
-     this.baseUrl = env.apiUrl
-    //this.baseUrl = `http://${window.location.hostname}/api/users`
+    // this.baseUrl = env.apiUrl
+    this.baseUrl = `http://${window.location.hostname}/api/users`
     console.log(this.baseUrl )
     console.log('$userlocation',window.location.hostname);
    }

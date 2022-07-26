@@ -17,8 +17,8 @@ export class TodoService {
     // }else{
     //   this.baseUrl = prodENV.apiUrl_todo
     // }
-     this.baseUrl = env.apiUrl_todo
-    //this.baseUrl = `http://${window.location.hostname}/api/todos`
+    // this.baseUrl = env.apiUrl_todo
+    this.baseUrl = `http://${window.location.hostname}/api/todos`
   }
 
   getTodos(email:string): Observable<Todo[]> {
