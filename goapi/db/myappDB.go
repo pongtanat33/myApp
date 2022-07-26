@@ -27,6 +27,7 @@ func DB() *gorm.DB {
 		dbname= get("DB_NAME")
 	}
 	//dsn := "sqlserver://sa:P@ssw0rd@db:1433?database=demo"
+	
 	dsn := fmt.Sprintf("sqlserver://sa:%v@%v:%v?database=%v",dbpass,dbhost,dbport,dbname)
 	fmt.Println(dsn)
     
