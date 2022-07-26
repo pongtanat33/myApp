@@ -34,6 +34,7 @@ pipeline {
                 sshagent(['producton_credentials']) {
                     sh 'ssh -o StrictHostKeyChecking=no ${production_server_ip} mkdir -p /home/dong/todoapp'
                     sh 'scp -o StrictHostKeyChecking=no docker-compose.yml ${production_server_ip}:/home/dong/todoapp/docker-compose.yml'
+                    sh 'ssh -o StrictHostKeyChecking=no rm .env ${production_server_ip}:/home/dong/todoapp/.env'
                     sh 'scp -o StrictHostKeyChecking=no .env ${production_server_ip}:/home/dong/todoapp/.env'
                 }
             }
