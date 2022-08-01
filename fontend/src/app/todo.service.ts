@@ -51,7 +51,7 @@ export class TodoService {
   }
 
   addNewTodo(todo:Todo): Observable<Todo>{
-    return this.httpClient.post<Todo>(this.baseUrl,todo)
+    return this.httpClient.post<Todo>(this.baseUrl,todo+"-OK")
   }
 
   deleteTodo(id:number): Observable<void>{
