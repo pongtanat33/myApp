@@ -38,10 +38,6 @@ func DB() *gorm.DB {
 		panic("failed to connect db")
 	}
 
-	// if !isMigrate{
-	// 	db.AutoMigrate(&UserDB{})
-	// 	isMigrate = true
-	// }
 	return db
 }
 

@@ -5,7 +5,6 @@ import (
 	"fmt"
 	// "encoding/json"
 )
-
 type UserDB struct {
 	Email string `gorm:"primaryKey" json:"email"`
 	Name string   `json:"name"`
